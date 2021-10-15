@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">donation1</string>
+    <string name="donateButton">Donate</string>
+</resources>
