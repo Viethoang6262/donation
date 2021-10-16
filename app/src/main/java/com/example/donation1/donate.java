@@ -1,7 +1,9 @@
 package com.example.donation1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class donate extends AppCompatActivity {
     private Button donateButton;
     private RadioGroup paymentMethod;
     private ProgressBar progressBar;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_donate);
 
         donateButton = findViewById(R.id.donateButton);
 
@@ -49,15 +51,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_donate, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-            return true;
-        //}return super.onOptionsItemSelected(item);
+        switch (item.getItemId())
+        {
+            case R.id.menuReport : startActivity (new Intent(this, Report.class));
+            //case R.id.donateMenu: startActivity (new Intent(this, donate.class));
+            break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void donateButtonPressed(View view)
