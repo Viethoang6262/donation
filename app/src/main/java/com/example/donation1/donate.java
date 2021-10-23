@@ -7,19 +7,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class donate extends AppCompatActivity {
-    private Button donateButton;
-    private RadioGroup paymentMethod;
-    private ProgressBar progressBar;
-    private NumberPicker amountPicker;
+public class donate extends Base {
+    private      Button         donateButton;
+    private      RadioGroup     paymentMethod;
+    private      ProgressBar    progressBar;
+    private      NumberPicker   amountPicker;
+    private      EditText       amountText;
+    private      TextView       amoutTotal;
     private int totalDonated = 0;
 
     @Override
@@ -41,13 +45,14 @@ public class donate extends AppCompatActivity {
         });
         //khai bao cac giao dien thanh toan
         paymentMethod = (RadioGroup)findViewById(R.id.paymentMethod);
-
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        progressBar.setMax(10000);
-
         amountPicker = (NumberPicker) findViewById(R.id.amountPicker);
+        amoutTotal = findViewById(R.id.amoutTotal);
+
+        progressBar.setMax(10000);
         amountPicker.setMinValue(0);
         amountPicker.setMaxValue(1000);
+        amoutTotal.setText("$0");
     }
 
     @Override

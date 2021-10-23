@@ -5,11 +5,12 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/a.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_donate.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_donate.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_report.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_report2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/resouce_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/row_donate.xml" value="0.33" />
         <entry key="app/src/main/res/menu/item.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/menu/menu_donate.xml" value="0.22" />
       </map>

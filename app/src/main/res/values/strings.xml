@@ -3,4 +3,6 @@
     <string name="donateButton">Donate</string>
     <string name="menuReport">Report</string>
     <string name="reportTitle">Report</string>
+    <string name="defaultAmount">00</string>
+    <string name="defaultMethod">N/A</string>
 </resources>
