@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ie.app.models.Donation;
 
 
 public class donate extends Base {
@@ -23,7 +24,7 @@ public class donate extends Base {
     private      ProgressBar    progressBar;
     private      NumberPicker   amountPicker;
     private      EditText       amountText;
-    private      TextView       amoutTotal;
+    private      TextView       amountTotal;
     private int totalDonated = 0;
 
     @Override
@@ -47,12 +48,12 @@ public class donate extends Base {
         paymentMethod = (RadioGroup)findViewById(R.id.paymentMethod);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         amountPicker = (NumberPicker) findViewById(R.id.amountPicker);
-        amoutTotal = findViewById(R.id.amoutTotal);
+        amountTotal = findViewById(R.id.amoutTotal);
 
         progressBar.setMax(10000);
         amountPicker.setMinValue(0);
         amountPicker.setMaxValue(1000);
-        amoutTotal.setText("$0");
+        amountTotal.setText("$0");
     }
 
     @Override
@@ -75,17 +76,21 @@ public class donate extends Base {
 
     public void donateButtonPressed(View view)
     {
-        int amount = amountPicker.getValue();
-        int radioId = paymentMethod.getCheckedRadioButtonId();
-        String method = "";
-        if(radioId == R.id.Paypal) {
-            method = "PayPal";
-        } else {
-            method = "Direct";
+        String method = paymentMethod.getCheckedRadioButtonId() == R.id.Paypal ?
+                "PayPal" : "Direct";
+        int donatedAmount = amountPicker.getValue();
+        if (donatedAmount == 0)
+        {
+            String text = amountText.getText().toString();
+            if (!text.equals(""))
+                donatedAmount = Integer.parseInt(text);
         }
-        totalDonated = totalDonated + amount;
-        progressBar.setProgress(totalDonated);
-        Log.v("Donate", "Donate Pressed, with amount: " + amount + ", Method: " + method);
-        Log.v("Donate","Current total" + totalDonated);
+        if (donatedAmount > 0)
+        {
+            newDonation(new Donation(donatedAmount, method));
+            progressBar.setProgress(totalDonated);
+            String totalDonatedStr = "$" + totalDonated;
+            amountTotal.setText(totalDonatedStr);
+        }
     }
 }
