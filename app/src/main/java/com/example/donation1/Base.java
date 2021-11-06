@@ -17,11 +17,8 @@ import ie.app.models.Donation;
 
 public class Base extends AppCompatActivity
 {
-    public final int
-            target
-            = 10000;
-    public int
-            totalDonated = 0;
+    public final int target = 10000;
+    public int totalDonated = 0;
     public static List <Donation> donations = new ArrayList<Donation>();
     public boolean newDonation(Donation donation)
     {
@@ -75,4 +72,5 @@ public class Base extends AppCompatActivity
     {
         startActivity (new Intent(this, donate.class));
     }
+    public void reset(MenuItem item) {}
 }

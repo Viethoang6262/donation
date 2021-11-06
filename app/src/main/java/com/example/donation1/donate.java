@@ -25,7 +25,6 @@ public class donate extends Base {
     private      NumberPicker   amountPicker;
     private      EditText       amountText;
     private      TextView       amountTotal;
-    private int totalDonated = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +87,7 @@ public class donate extends Base {
         if (donatedAmount > 0)
         {
             newDonation(new Donation(donatedAmount, method));
+            totalDonated = totalDonated + donatedAmount;
             progressBar.setProgress(totalDonated);
             String totalDonatedStr = "$" + totalDonated;
             amountTotal.setText(totalDonatedStr);

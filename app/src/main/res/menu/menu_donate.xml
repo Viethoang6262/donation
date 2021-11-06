@@ -2,11 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context=".Donate">
-    <item android:id="@+id/action_settings"
-        android:title="Action"
+    <item
+        android:id="@+id/donateItemm"
+        android:onClick="donate"
         android:orderInCategory="100"
-        app:showAsAction="never"
-        android:onClick="settings"/>
+        android:title="Donate"
+        app:showAsAction="never" />
     <item
         android:id="@+id/menuReport"
         android:orderInCategory="100"
@@ -14,9 +15,9 @@
         app:showAsAction="never"
         android:onClick="report"/>
     <item
-        android:id="@+id/donateItemm"
+        android:id="@+id/menuReset"
+        android:onClick="reset"
         android:orderInCategory="100"
-        android:title="Donate"
-        app:showAsAction="never"
-        android:onClick="donate"/>
+        android:title="Reset"
+        app:showAsAction="never" />
 </menu>
